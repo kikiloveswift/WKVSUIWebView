@@ -7,6 +7,9 @@
 //
 
 #import "WKViewController.h"
+#define LoadURL @"http://192.168.0.12:8080/JSCoreTest-1/index.html"
+#define LocalHosts @"192.168.0.12"
+
 
 @interface WKViewController ()
 
@@ -47,7 +50,7 @@ static int i = 0;
     config.userContentController = _userContentController;
     _webView = [[WKWebView alloc] initWithFrame:[UIScreen mainScreen].bounds configuration:config];
     [_webView addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:nil];
-    [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://172.16.205.121:8080/JSCoreTest/index.html"]]];
+    [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:LoadURL]]];
     _webView.allowsBackForwardNavigationGestures = YES;
     _webView.navigationDelegate = self;
     _webView.navigationDelegate = self;
@@ -125,10 +128,14 @@ static int i = 0;
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationResponse:(WKNavigationResponse *)navigationResponse decisionHandler:(void (^)(WKNavigationResponsePolicy))decisionHandler {
     
     NSLog(@"NaviResponse");
-    if ([navigationResponse.response.URL.host.lowercaseString containsString:@"baidu.com"]) {
+    if ([navigationResponse.response.URL.host.lowercaseString containsString:@"aoyou.com"]) {
+        decisionHandler(WKNavigationResponsePolicyAllow);
+//        [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:LoadURL]]];
+        return;
+    }else if ([navigationResponse.response.URL.host.lowercaseString containsString:LocalHosts]){
         decisionHandler(WKNavigationResponsePolicyAllow);
         return;
-    }else if ([navigationResponse.response.URL.host.lowercaseString containsString:@"172.16.205"]){
+    }else if ([navigationResponse.response.URL.host.lowercaseString containsString:@"baidu.com"]){
         decisionHandler(WKNavigationResponsePolicyAllow);
         return;
     }
@@ -146,10 +153,15 @@ static int i = 0;
  */
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler
 {
-    if ([navigationAction.request.URL.host.lowercaseString containsString:@"baidu.com"]) {
+    if ([navigationAction.request.URL.host.lowercaseString containsString:@"aoyou.com"]) {
+        decisionHandler(WKNavigationActionPolicyAllow);
+//        [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.baidu.com"]]];
+
+        return;
+    }else if ([navigationAction.request.URL.host.lowercaseString containsString:LocalHosts]){
         decisionHandler(WKNavigationActionPolicyAllow);
         return;
-    }else if ([navigationAction.request.URL.host.lowercaseString containsString:@"172.16.205"]){
+    }else if ([navigationAction.request.URL.host.lowercaseString containsString:@"baidu.com"]){
         decisionHandler(WKNavigationActionPolicyAllow);
         return;
     }
