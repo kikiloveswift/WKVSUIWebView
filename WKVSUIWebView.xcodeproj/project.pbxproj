@@ -9,12 +9,16 @@
 /* Begin PBXBuildFile section */
 		FCA929561D90C53900DA20DF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA929551D90C53900DA20DF /* main.m */; };
 		FCA929591D90C53900DA20DF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA929581D90C53900DA20DF /* AppDelegate.m */; };
-		FCA9295C1D90C53900DA20DF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA9295B1D90C53900DA20DF /* ViewController.m */; };
 		FCA9295F1D90C53900DA20DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCA9295D1D90C53900DA20DF /* Main.storyboard */; };
 		FCA929611D90C53900DA20DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCA929601D90C53900DA20DF /* Assets.xcassets */; };
 		FCA929641D90C53900DA20DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCA929621D90C53900DA20DF /* LaunchScreen.storyboard */; };
 		FCA9296F1D90C53900DA20DF /* WKVSUIWebViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA9296E1D90C53900DA20DF /* WKVSUIWebViewTests.m */; };
 		FCA9297A1D90C53900DA20DF /* WKVSUIWebViewUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA929791D90C53900DA20DF /* WKVSUIWebViewUITests.m */; };
+		FCA929891D90C56500DA20DF /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCA929881D90C56500DA20DF /* WebKit.framework */; };
+		FCA9298C1D90C5BF00DA20DF /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA9298B1D90C5BF00DA20DF /* BaseViewController.m */; };
+		FCA9298F1D90C5CD00DA20DF /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA9298E1D90C5CD00DA20DF /* RootViewController.m */; };
+		FCA929921D90C5E500DA20DF /* UIWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA929911D90C5E500DA20DF /* UIWebViewController.m */; };
+		FCA929951D90C5F000DA20DF /* WKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA929941D90C5F000DA20DF /* WKViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +43,6 @@
 		FCA929551D90C53900DA20DF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FCA929571D90C53900DA20DF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FCA929581D90C53900DA20DF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		FCA9295A1D90C53900DA20DF /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		FCA9295B1D90C53900DA20DF /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		FCA9295E1D90C53900DA20DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FCA929601D90C53900DA20DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FCA929631D90C53900DA20DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +53,16 @@
 		FCA929751D90C53900DA20DF /* WKVSUIWebViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WKVSUIWebViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCA929791D90C53900DA20DF /* WKVSUIWebViewUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKVSUIWebViewUITests.m; sourceTree = "<group>"; };
 		FCA9297B1D90C53900DA20DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FCA929871D90C55800DA20DF /* config.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.pch; sourceTree = "<group>"; };
+		FCA929881D90C56500DA20DF /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		FCA9298A1D90C5BF00DA20DF /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		FCA9298B1D90C5BF00DA20DF /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		FCA9298D1D90C5CD00DA20DF /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		FCA9298E1D90C5CD00DA20DF /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		FCA929901D90C5E500DA20DF /* UIWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIWebViewController.h; sourceTree = "<group>"; };
+		FCA929911D90C5E500DA20DF /* UIWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIWebViewController.m; sourceTree = "<group>"; };
+		FCA929931D90C5F000DA20DF /* WKViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKViewController.h; sourceTree = "<group>"; };
+		FCA929941D90C5F000DA20DF /* WKViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCA929891D90C56500DA20DF /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +94,7 @@
 		FCA929481D90C53900DA20DF = {
 			isa = PBXGroup;
 			children = (
+				FCA929881D90C56500DA20DF /* WebKit.framework */,
 				FCA929531D90C53900DA20DF /* WKVSUIWebView */,
 				FCA9296D1D90C53900DA20DF /* WKVSUIWebViewTests */,
 				FCA929781D90C53900DA20DF /* WKVSUIWebViewUITests */,
@@ -103,8 +117,15 @@
 			children = (
 				FCA929571D90C53900DA20DF /* AppDelegate.h */,
 				FCA929581D90C53900DA20DF /* AppDelegate.m */,
-				FCA9295A1D90C53900DA20DF /* ViewController.h */,
-				FCA9295B1D90C53900DA20DF /* ViewController.m */,
+				FCA9298A1D90C5BF00DA20DF /* BaseViewController.h */,
+				FCA9298B1D90C5BF00DA20DF /* BaseViewController.m */,
+				FCA9298D1D90C5CD00DA20DF /* RootViewController.h */,
+				FCA9298E1D90C5CD00DA20DF /* RootViewController.m */,
+				FCA929901D90C5E500DA20DF /* UIWebViewController.h */,
+				FCA929911D90C5E500DA20DF /* UIWebViewController.m */,
+				FCA929931D90C5F000DA20DF /* WKViewController.h */,
+				FCA929941D90C5F000DA20DF /* WKViewController.m */,
+				FCA929871D90C55800DA20DF /* config.pch */,
 				FCA9295D1D90C53900DA20DF /* Main.storyboard */,
 				FCA929601D90C53900DA20DF /* Assets.xcassets */,
 				FCA929621D90C53900DA20DF /* LaunchScreen.storyboard */,
@@ -207,6 +228,8 @@
 				TargetAttributes = {
 					FCA929501D90C53900DA20DF = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 628LRYYF8F;
+						ProvisioningStyle = Automatic;
 					};
 					FCA929691D90C53900DA20DF = {
 						CreatedOnToolsVersion = 7.2;
@@ -270,8 +293,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FCA9295C1D90C53900DA20DF /* ViewController.m in Sources */,
+				FCA929951D90C5F000DA20DF /* WKViewController.m in Sources */,
 				FCA929591D90C53900DA20DF /* AppDelegate.m in Sources */,
+				FCA9298C1D90C5BF00DA20DF /* BaseViewController.m in Sources */,
+				FCA9298F1D90C5CD00DA20DF /* RootViewController.m in Sources */,
+				FCA929921D90C5E500DA20DF /* UIWebViewController.m in Sources */,
 				FCA929561D90C53900DA20DF /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -411,10 +437,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 628LRYYF8F;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/WKVSUIWebview/config.pch";
 				INFOPLIST_FILE = WKVSUIWebView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.konglee.WKVSUIWebView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -422,10 +453,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 628LRYYF8F;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/WKVSUIWebview/config.pch";
 				INFOPLIST_FILE = WKVSUIWebView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.konglee.WKVSUIWebView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -496,6 +532,7 @@
 				FCA929801D90C53A00DA20DF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FCA929811D90C53A00DA20DF /* Build configuration list for PBXNativeTarget "WKVSUIWebViewTests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +541,7 @@
 				FCA929831D90C53A00DA20DF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FCA929841D90C53A00DA20DF /* Build configuration list for PBXNativeTarget "WKVSUIWebViewUITests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +550,7 @@
 				FCA929861D90C53A00DA20DF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
