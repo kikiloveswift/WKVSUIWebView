@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FC0A59FF1D925F8A00A7C4DE /* AYHybridBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = FC0A59FC1D925F8A00A7C4DE /* AYHybridBridge.m */; };
+		FC0A5A001D925F8A00A7C4DE /* AYHybridData.m in Sources */ = {isa = PBXBuildFile; fileRef = FC0A59FE1D925F8A00A7C4DE /* AYHybridData.m */; };
+		FC0A5A041D927B5B00A7C4DE /* AYWKWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC0A5A031D927B5B00A7C4DE /* AYWKWebView.m */; };
+		FC0A5A071D927E5A00A7C4DE /* AYWKWebView+viewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC0A5A061D927E5A00A7C4DE /* AYWKWebView+viewController.m */; };
+		FC0A5A0A1D927F1100A7C4DE /* LocalDocumentEct.m in Sources */ = {isa = PBXBuildFile; fileRef = FC0A5A091D927F1100A7C4DE /* LocalDocumentEct.m */; };
 		FCA929561D90C53900DA20DF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA929551D90C53900DA20DF /* main.m */; };
 		FCA929591D90C53900DA20DF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA929581D90C53900DA20DF /* AppDelegate.m */; };
 		FCA9295F1D90C53900DA20DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCA9295D1D90C53900DA20DF /* Main.storyboard */; };
@@ -39,6 +44,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FC0A59FB1D925F8A00A7C4DE /* AYHybridBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AYHybridBridge.h; sourceTree = "<group>"; };
+		FC0A59FC1D925F8A00A7C4DE /* AYHybridBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AYHybridBridge.m; sourceTree = "<group>"; };
+		FC0A59FD1D925F8A00A7C4DE /* AYHybridData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AYHybridData.h; sourceTree = "<group>"; };
+		FC0A59FE1D925F8A00A7C4DE /* AYHybridData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AYHybridData.m; sourceTree = "<group>"; };
+		FC0A5A021D927B5B00A7C4DE /* AYWKWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AYWKWebView.h; sourceTree = "<group>"; };
+		FC0A5A031D927B5B00A7C4DE /* AYWKWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AYWKWebView.m; sourceTree = "<group>"; };
+		FC0A5A051D927E5A00A7C4DE /* AYWKWebView+viewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AYWKWebView+viewController.h"; sourceTree = "<group>"; };
+		FC0A5A061D927E5A00A7C4DE /* AYWKWebView+viewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AYWKWebView+viewController.m"; sourceTree = "<group>"; };
+		FC0A5A081D927F1100A7C4DE /* LocalDocumentEct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalDocumentEct.h; sourceTree = "<group>"; };
+		FC0A5A091D927F1100A7C4DE /* LocalDocumentEct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalDocumentEct.m; sourceTree = "<group>"; };
 		FCA929511D90C53900DA20DF /* WKVSUIWebView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WKVSUIWebView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCA929551D90C53900DA20DF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FCA929571D90C53900DA20DF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -91,6 +106,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FC0A5A011D925F9000A7C4DE /* HybridLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				FC0A5A021D927B5B00A7C4DE /* AYWKWebView.h */,
+				FC0A5A031D927B5B00A7C4DE /* AYWKWebView.m */,
+				FC0A5A051D927E5A00A7C4DE /* AYWKWebView+viewController.h */,
+				FC0A5A061D927E5A00A7C4DE /* AYWKWebView+viewController.m */,
+				FC0A5A081D927F1100A7C4DE /* LocalDocumentEct.h */,
+				FC0A5A091D927F1100A7C4DE /* LocalDocumentEct.m */,
+				FC0A59FB1D925F8A00A7C4DE /* AYHybridBridge.h */,
+				FC0A59FC1D925F8A00A7C4DE /* AYHybridBridge.m */,
+				FC0A59FD1D925F8A00A7C4DE /* AYHybridData.h */,
+				FC0A59FE1D925F8A00A7C4DE /* AYHybridData.m */,
+			);
+			name = HybridLibrary;
+			sourceTree = "<group>";
+		};
 		FCA929481D90C53900DA20DF = {
 			isa = PBXGroup;
 			children = (
@@ -125,6 +157,7 @@
 				FCA929911D90C5E500DA20DF /* UIWebViewController.m */,
 				FCA929931D90C5F000DA20DF /* WKViewController.h */,
 				FCA929941D90C5F000DA20DF /* WKViewController.m */,
+				FC0A5A011D925F9000A7C4DE /* HybridLibrary */,
 				FCA929871D90C55800DA20DF /* config.pch */,
 				FCA9295D1D90C53900DA20DF /* Main.storyboard */,
 				FCA929601D90C53900DA20DF /* Assets.xcassets */,
@@ -293,12 +326,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC0A5A071D927E5A00A7C4DE /* AYWKWebView+viewController.m in Sources */,
 				FCA929951D90C5F000DA20DF /* WKViewController.m in Sources */,
 				FCA929591D90C53900DA20DF /* AppDelegate.m in Sources */,
 				FCA9298C1D90C5BF00DA20DF /* BaseViewController.m in Sources */,
+				FC0A59FF1D925F8A00A7C4DE /* AYHybridBridge.m in Sources */,
 				FCA9298F1D90C5CD00DA20DF /* RootViewController.m in Sources */,
+				FC0A5A041D927B5B00A7C4DE /* AYWKWebView.m in Sources */,
 				FCA929921D90C5E500DA20DF /* UIWebViewController.m in Sources */,
+				FC0A5A0A1D927F1100A7C4DE /* LocalDocumentEct.m in Sources */,
 				FCA929561D90C53900DA20DF /* main.m in Sources */,
+				FC0A5A001D925F8A00A7C4DE /* AYHybridData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

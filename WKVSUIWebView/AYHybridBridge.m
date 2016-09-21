@@ -19,10 +19,17 @@
 + (instancetype)shareInstanceWith:(WKWebView *)webView
 {
     AYHybridBridge *bridge = [[self alloc] init];
+    [bridge setupHybridData:webView];
     
     return bridge;
 }
 
+
+/**
+ 初始化Data的代理
+
+ @param webView 当前webView
+ */
 - (void)setupHybridData:(WKWebView *)webView
 {
     _webView = webView;
