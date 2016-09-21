@@ -116,6 +116,27 @@ static int i = 0;
 }
 
 /**
+ 在发送请求前，决定是否跳转
+ 
+ @param webView          WKWebview
+ @param navigationAction 当前的navigation
+ @param decisionHandler  是否跳转
+ */
+- (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler
+{
+    if ([navigationAction.request.URL.host.lowercaseString containsString:@"aoyou.com"]) {
+        decisionHandler(WKNavigationActionPolicyAllow);
+        return;
+    }else if ([navigationAction.request.URL.host.lowercaseString containsString:@"172.16.205"]){
+        decisionHandler(WKNavigationActionPolicyAllow);
+        return;
+    }
+    //其他域名一律不允许跳转
+    decisionHandler(WKNavigationActionPolicyCancel);
+}
+
+
+/**
  *  在收到响应后，决定是否跳转
  *
  *  @param webView            实现该代理的webview
@@ -125,7 +146,7 @@ static int i = 0;
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationResponse:(WKNavigationResponse *)navigationResponse decisionHandler:(void (^)(WKNavigationResponsePolicy))decisionHandler {
     
     NSLog(@"NaviResponse");
-    if ([navigationResponse.response.URL.host.lowercaseString containsString:@"baidu.com"]) {
+    if ([navigationResponse.response.URL.host.lowercaseString containsString:@"aoyou.com"]) {
         decisionHandler(WKNavigationResponsePolicyAllow);
         return;
     }else if ([navigationResponse.response.URL.host.lowercaseString containsString:@"172.16.205"]){
@@ -137,25 +158,6 @@ static int i = 0;
 }
 
 
-/**
- 在发送请求前，决定是否跳转
-
- @param webView          WKWebview
- @param navigationAction 当前的navigation
- @param decisionHandler  是否跳转
- */
-- (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler
-{
-    if ([navigationAction.request.URL.host.lowercaseString containsString:@"baidu.com"]) {
-        decisionHandler(WKNavigationActionPolicyAllow);
-        return;
-    }else if ([navigationAction.request.URL.host.lowercaseString containsString:@"172.16.205"]){
-        decisionHandler(WKNavigationActionPolicyAllow);
-        return;
-    }
-    //其他域名一律不允许跳转
-    decisionHandler(WKNavigationActionPolicyCancel);
-}
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation
 {
 
