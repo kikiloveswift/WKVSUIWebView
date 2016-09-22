@@ -13,4 +13,6 @@
 
 #define KHeight [UIScreen mainScreen].bounds.size.height
 
+#import "hybridConst.h"
+
 #endif

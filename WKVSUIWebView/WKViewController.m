@@ -7,6 +7,7 @@
 //
 
 #import "WKViewController.h"
+#import "LocalDocumentEct.h"
 #define  isHome 0 //1为在家 0为不在家
 #if isHome
 #define LoadURL @"http://192.168.0.12:8080/JSCoreTest-1/index.html"
@@ -34,12 +35,21 @@ static int i = 0;
     [super viewDidLoad];
     self.title = @"WKWebView";
     [self initUI];
+    [self testSearch];
+}
+
+- (void)testSearch
+{
+    NSString *str = [LocalDocumentEct loadLocalHtmlString:[NSURL URLWithString:@"http://www.aoyou.com"]];
+    NSLog(@"str is %@",str);
 }
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.translucent = NO;
 }
+
+
 
 
 /**
@@ -56,7 +66,6 @@ static int i = 0;
     [_webView addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:nil];
     [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:LoadURL]]];
     _webView.allowsBackForwardNavigationGestures = YES;
-    _webView.navigationDelegate = self;
     _webView.navigationDelegate = self;
     [self.view addSubview:_webView];
     
