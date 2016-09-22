@@ -7,10 +7,15 @@
 //
 
 #import "WKViewController.h"
+#import "LocalDocumentEct.h"
+#define  isHome 0 //1为在家 0为不在家
+#if isHome
 #define LoadURL @"http://192.168.0.12:8080/JSCoreTest-1/index.html"
 #define LocalHosts @"192.168.0.12"
-
-
+#else
+#define LoadURL @"http://172.16.205.121:8080/JSCoreTest/index.html"
+#define LocalHosts @"172.16.205.121"
+#endif
 @interface WKViewController ()
 
 @property(nonatomic, strong)WKWebView *webView;
@@ -30,12 +35,21 @@ static int i = 0;
     [super viewDidLoad];
     self.title = @"WKWebView";
     [self initUI];
+    [self testSearch];
+}
+
+- (void)testSearch
+{
+    NSString *str = [LocalDocumentEct loadLocalHtmlString:[NSURL URLWithString:@"http://www.aoyou.com"]];
+    NSLog(@"str is %@",str);
 }
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.translucent = NO;
 }
+
+
 
 
 /**
@@ -52,7 +66,6 @@ static int i = 0;
     [_webView addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:nil];
     [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:LoadURL]]];
     _webView.allowsBackForwardNavigationGestures = YES;
-    _webView.navigationDelegate = self;
     _webView.navigationDelegate = self;
     [self.view addSubview:_webView];
     
@@ -118,6 +131,7 @@ static int i = 0;
     
 }
 
+
 /**
  在发送请求前，决定是否跳转
  
@@ -129,60 +143,8 @@ static int i = 0;
 {
     if ([navigationAction.request.URL.host.lowercaseString containsString:@"aoyou.com"]) {
         decisionHandler(WKNavigationActionPolicyAllow);
-        return;
-    }else if ([navigationAction.request.URL.host.lowercaseString containsString:@"172.16.205"]){
-        decisionHandler(WKNavigationActionPolicyAllow);
-        return;
-    }
-    //其他域名一律不允许跳转
-    decisionHandler(WKNavigationActionPolicyCancel);
-}
-
-
-/**
- *  在收到响应后，决定是否跳转
- *
- *  @param webView            实现该代理的webview
- *  @param navigationResponse 当前navigation
- *  @param decisionHandler    是否跳转block
- */
-- (void)webView:(WKWebView *)webView decidePolicyForNavigationResponse:(WKNavigationResponse *)navigationResponse decisionHandler:(void (^)(WKNavigationResponsePolicy))decisionHandler {
-    
-    NSLog(@"NaviResponse");
-    if ([navigationResponse.response.URL.host.lowercaseString containsString:@"aoyou.com"]) {
-<<<<<<< HEAD
-=======
-        decisionHandler(WKNavigationResponsePolicyAllow);
-//        [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:LoadURL]]];
-        return;
-    }else if ([navigationResponse.response.URL.host.lowercaseString containsString:LocalHosts]){
->>>>>>> origin/master
-        decisionHandler(WKNavigationResponsePolicyAllow);
-        return;
-    }else if ([navigationResponse.response.URL.host.lowercaseString containsString:@"baidu.com"]){
-        decisionHandler(WKNavigationResponsePolicyAllow);
-        return;
-    }
-    //其他域名一律不允许跳转
-    decisionHandler(WKNavigationResponsePolicyAllow);
-}
-
-
-<<<<<<< HEAD
-=======
-/**
- 在发送请求前，决定是否跳转
-
- @param webView          WKWebview
- @param navigationAction 当前的navigation
- @param decisionHandler  是否跳转
- */
-- (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler
-{
-    if ([navigationAction.request.URL.host.lowercaseString containsString:@"aoyou.com"]) {
-        decisionHandler(WKNavigationActionPolicyAllow);
-//        [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.baidu.com"]]];
-
+        //        [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.baidu.com"]]];
+        
         return;
     }else if ([navigationAction.request.URL.host.lowercaseString containsString:LocalHosts]){
         decisionHandler(WKNavigationActionPolicyAllow);
@@ -194,7 +156,35 @@ static int i = 0;
     //其他域名一律不允许跳转
     decisionHandler(WKNavigationActionPolicyCancel);
 }
->>>>>>> origin/master
+
+/**
+ *  在收到响应后，决定是否跳转
+ *
+ *  @param webView            实现该代理的webview
+ *  @param navigationResponse 当前navigation
+ *  @param decisionHandler    是否跳转block
+ */
+- (void)webView:(WKWebView *)webView decidePolicyForNavigationResponse:(WKNavigationResponse *)navigationResponse decisionHandler:(void (^)(WKNavigationResponsePolicy))decisionHandler {
+    
+    if ([navigationResponse.response.URL.host.lowercaseString containsString:@"aoyou.com"]) {
+        decisionHandler(WKNavigationResponsePolicyAllow);
+//        [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:LoadURL]]];
+        return;
+    }else if ([navigationResponse.response.URL.host.lowercaseString containsString:LocalHosts]){
+        decisionHandler(WKNavigationResponsePolicyAllow);
+        return;
+    }else if ([navigationResponse.response.URL.host.lowercaseString containsString:@"baidu.com"]){
+        decisionHandler(WKNavigationResponsePolicyAllow);
+        return;
+    }
+    //其他域名一律不允许跳转
+    decisionHandler(WKNavigationResponsePolicyAllow);
+}
+
+
+
+
+
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation
 {
 
