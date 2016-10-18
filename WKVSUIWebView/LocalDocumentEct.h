@@ -18,6 +18,6 @@
 
  @return 本地重新加载的目录
  */
-+ (NSString *)loadLocalHtmlString:(NSString *)jsString;
++ (NSString *)loadLocalHtmlString:(NSURL *)jsURL;
 
 @end

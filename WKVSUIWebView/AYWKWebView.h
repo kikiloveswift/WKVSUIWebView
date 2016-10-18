@@ -9,9 +9,24 @@
 #import <WebKit/WebKit.h>
 #import "AYHybridBridge.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
+
+
+@protocol JSActionOCDelegate <NSObject>
+
+@required
+
+- (void)jsActionOC:(WKScriptMessage *)message;
+
+@end
+
 typedef void(^JSToOCMessageHandle)(WKScriptMessage *message);
 
 @interface AYWKWebView : WKWebView<WKUIDelegate, WKNavigationDelegate, WKScriptMessageHandler>
+
+
+@property (nonatomic, weak)id<JSActionOCDelegate> jsActionDelegate;
 
 @property(nonatomic, strong) AYHybridBridge *bridge;
 
@@ -27,7 +42,20 @@ typedef void(^JSToOCMessageHandle)(WKScriptMessage *message);
  */
 @property (nonatomic, copy)JSToOCMessageHandle messageHandle;
 
-- (instancetype)initWithFrame:(CGRect)frame;
+/**
+ 加载的URLString
+ */
+@property (nonatomic, copy)NSString *requestURL;
+
+//初始化WebView
+- (instancetype)initWithFrame:(CGRect)frame configuration:(nonnull WKWebViewConfiguration *)configuration;
+
+
+//加载HTML
+- (void)loadLocalHtml:( NSString *)urlString;
+
+
+NS_ASSUME_NONNULL_END
 
 
 @end
