@@ -15,4 +15,6 @@
 
 #import "hybridConst.h"
 
+#import "AYWKWebView+viewController.h"
+
 #endif

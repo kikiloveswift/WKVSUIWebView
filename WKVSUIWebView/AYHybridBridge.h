@@ -13,18 +13,29 @@
 
 #import <Foundation/Foundation.h>
 #import <WebKit/WebKit.h>
-#import "AYHybridData.h"
 
 #endif
 
+@protocol JSToOCDelegate <NSObject>
 
-@interface AYHybridBridge : NSObject<WKNavigationDelegate,AYWebHybridBridgeDataDelegate>
+@required
+
+- (void)jsActionToOC:(WKScriptMessage *)message;
+
+@end
+
+
+@interface AYHybridBridge : NSObject<WKNavigationDelegate, WKScriptMessageHandler, WKUIDelegate>
+
+@property(nonatomic, weak) id<JSToOCDelegate> delegate;
+
 
 
 /**
- 初始化Bridge调用的Method
+ 初始化Bridge
 
- @param webView WKWebView
+ @param webView 传入的WebView
+ @param configs 配置数组
 
  @return 实例
  */

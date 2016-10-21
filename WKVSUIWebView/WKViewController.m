@@ -188,9 +188,9 @@ static int i = 0;
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation
 {
 
-//    [_webView evaluateJavaScript:@"calValueCallBackToOC(200,100)" completionHandler:^(id _Nullable script, NSError * _Nullable error) {
-//        NSLog(@"script is %@",script);
-//    }];
+    [_webView evaluateJavaScript:@"calValueCallBackToOC(200,100)" completionHandler:^(id _Nullable script, NSError * _Nullable error) {
+        NSLog(@"script is %@",script);
+    }];
 }
 
 //JS调用OC

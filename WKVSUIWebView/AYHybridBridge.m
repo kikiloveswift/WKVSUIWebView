@@ -12,7 +12,6 @@
 {
     __weak WKWebView *_webView;
     __weak id<WKNavigationDelegate> navigationDelegate;
-    AYHybridData *_data;
     
 }
 
@@ -20,7 +19,6 @@
 {
     AYHybridBridge *bridge = [[self alloc] init];
     [bridge setupHybridData:webView];
-    
     return bridge;
 }
 
@@ -34,9 +32,20 @@
 {
     _webView = webView;
     _webView.navigationDelegate = self;
-    _data = [[AYHybridData alloc] init];
-    _data.dataDelegate = self;
+//    _data = [[AYHybridData alloc] init];
+//    _data.dataDelegate = self;
 }
+
+
+
+
+#pragma Mark--WKScriptMessageHandler
+- (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message
+{
+    
+}
+
+
 
 
 //数据源代理

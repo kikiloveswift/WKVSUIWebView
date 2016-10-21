@@ -10,11 +10,21 @@
 
 @implementation LocalDocumentEct
 
-+ (NSString *)loadLocalHtmlString:(NSURL *)jsURL
++ (NSString *)loadLocalHtmlString:(NSString *)jsURLString
 {
     //搜索本地文件
     NSFileManager *fileMgr = [NSFileManager defaultManager];
-    [LocalDocumentEct searchLocalDiskIOS9:[jsURL absoluteString]];
+    
+    
+    //处理jsURL --->把jsURLString转为本地需要的路径
+    
+    
+    
+    //iOS9存取文件
+    [LocalDocumentEct searchLocalDiskIOS9:jsURLString];
+    
+    //iOS8取文件
+    [LocalDocumentEct searchLocalDiskIOS8:jsURLString];
     
     //返回路径
     
@@ -22,6 +32,8 @@
     return @"";
 }
 
+//事例
+///aoyou/m.aoyou.com/m.aoyou.com/s/LocalTour/detail.html
 #pragma mark--IOS9以上取Documents
 + (NSString *)searchLocalDiskIOS9:(NSString *)urlString
 {
@@ -29,7 +41,7 @@
     NSString* documentsDirectory = [paths objectAtIndex: 0];
     NSString* documentsPath = [documentsDirectory stringByAppendingPathComponent:urlString];
     NSLog(@"documentsPath is %@",documentsPath);
-    return @"";
+    return documentsPath;
 }
 
 #pragma mark--IOS9以下取tmp文件
@@ -37,9 +49,13 @@
 {
     //获取tmp路径
     NSString *temStr = NSTemporaryDirectory();
-    
-    return @"";
+    NSLog(@"temStr is %@",temStr);
+    temStr = [temStr stringByAppendingFormat:@"/%@",urlString];
+    return temStr;
 }
+
+
+
 
 
 

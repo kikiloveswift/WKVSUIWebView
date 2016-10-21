@@ -15,6 +15,8 @@ static const char *HYBRIDBRIDGE = "HYBRIDBRIDGE";
 
 @interface AYWKWebView()
 
+@property(nonatomic, strong) AYHybridBridge *bridge;
+
 @property (nonatomic, weak) CALayer *progresslayer;
 
 @end
@@ -41,7 +43,7 @@ static const char *HYBRIDBRIDGE = "HYBRIDBRIDGE";
     if (self)
     {
         //初始化进度条
-        [self initProgressView];
+        [self initProgressView];        
         
         //添加KVO观察者
         [self addKVOOserver];
@@ -68,25 +70,11 @@ static const char *HYBRIDBRIDGE = "HYBRIDBRIDGE";
     self.progresslayer = layer;
 }
 
+//加载HTML是上一层VC应该做的。。。
 //加载HTML 如果本地没有HTML则加载线上的URL
 - (void)loadLocalHtml:(NSString *)urlString
 {
     [LocalDocumentEct loadLocalHtmlString:[NSURL URLWithString:_requestURL]];
-}
-
-
-//注入Config
-- (void)setUpConfig:(NSArray *)configStrings
-{
-    WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];
-    WKUserContentController *uContentController = [[WKUserContentController alloc] init];
-    //addScript
-    for (NSString *str in configStrings)
-    {
-        [uContentController addScriptMessageHandler:self name:str];
-    }
-    config.userContentController = uContentController;
-    
 }
 
 //添加KVO监听
@@ -116,16 +104,6 @@ static const char *HYBRIDBRIDGE = "HYBRIDBRIDGE";
     }
 }
 
-
-//收到JS Message之后执行的跳转
-#pragma mark-WKScriptMessageHandler
-- (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message
-{
-    //跳转使用代理进行跳转 
-    if ([self.jsActionDelegate respondsToSelector:@selector(jsActionOC:)]) {
-        [self.jsActionDelegate jsActionOC:message];
-    }
-}
 
 
 
